@@ -8,11 +8,9 @@ class SubscriptionAndBills extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        children: [
-          const _NavigationRow(),
-          ListView.builder(
-            itemBuilder: (context, index) => const _SubsItem(),
-          )
+        children: const <Widget>[
+          _NavigationRow(),
+          _SubsItem(),
         ],
       ),
     );
@@ -24,7 +22,11 @@ class _SubsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height / 3.05,
+      child: const Placeholder(),
+    );
   }
 }
 

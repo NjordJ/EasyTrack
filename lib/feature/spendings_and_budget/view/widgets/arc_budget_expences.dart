@@ -3,14 +3,14 @@ import 'dart:math' as math;
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ArcProgressIndicator extends StatefulWidget {
-  const ArcProgressIndicator({Key? key}) : super(key: key);
+class ArcBudgetExpences extends StatefulWidget {
+  const ArcBudgetExpences({Key? key}) : super(key: key);
 
   @override
-  State<ArcProgressIndicator> createState() => _ArcProgressIndicatorState();
+  State<ArcBudgetExpences> createState() => _ArcBudgetExpencesState();
 }
 
-class _ArcProgressIndicatorState extends State<ArcProgressIndicator>
+class _ArcBudgetExpencesState extends State<ArcBudgetExpences>
     with SingleTickerProviderStateMixin {
   late Animation<double> animation;
   late AnimationController animationController;
@@ -53,23 +53,9 @@ class _ArcProgressIndicatorState extends State<ArcProgressIndicator>
           Positioned(
             top: 70.h,
             child: Column(
-              children: [
-                const Text('EasyTrack'),
-                const Text('\$1235'),
-                const Text('This month bills'),
-                ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        Theme.of(context).cardColor),
-                    shape: MaterialStateProperty.all<OutlinedBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15))),
-                    // backgroundColor:
-                    //     MaterialStateProperty.all<Color>(Colors.white),
-                  ),
-                  onPressed: () {},
-                  child: const Text('See your budget'),
-                ),
+              children: const <Widget>[
+                Text('\$82,67'),
+                Text('of \$ 2000 budget'),
               ],
             ),
           ),
