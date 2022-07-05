@@ -45,6 +45,7 @@ class _NavigationRow extends StatelessWidget {
           elevation: 0,
           selectedIndex: 0,
           backgroundColor: Colors.transparent,
+          labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
           destinations: const [
             NavigationDestination(
                 icon: Text('Your subscriptions'),

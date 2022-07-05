@@ -1,4 +1,3 @@
-import 'package:easy_track/core/widgets/app_bar.dart';
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -11,33 +10,31 @@ class SettingsPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: <Widget>[
-              Container(
-                child: Column(
-                  children: [
-                    const Text('My subscriptions'),
-                    Card(
-                      child: Column(
-                        children: const [
-                          _SettingsListTile(
-                            leadingIcon: Icon(Icons.sort),
-                            title: Text('Sorting'),
-                            trailing: null,
-                          ),
-                          _SettingsListTile(
-                            leadingIcon: Icon(Icons.circle),
-                            title: Text('Summary'),
-                            trailing: null,
-                          ),
-                          _SettingsListTile(
-                            leadingIcon: Icon(Icons.money_sharp),
-                            title: Text('Default currency'),
-                            trailing: null,
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+              Column(
+                children: [
+                  const Text('My subscriptions'),
+                  Card(
+                    child: Column(
+                      children: const [
+                        _SettingsListTile(
+                          leadingIcon: Icon(Icons.sort),
+                          title: Text('Sorting'),
+                          trailing: null,
+                        ),
+                        _SettingsListTile(
+                          leadingIcon: Icon(Icons.circle),
+                          title: Text('Summary'),
+                          trailing: null,
+                        ),
+                        _SettingsListTile(
+                          leadingIcon: Icon(Icons.money_sharp),
+                          title: Text('Default currency'),
+                          trailing: null,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               )
             ],
           ),

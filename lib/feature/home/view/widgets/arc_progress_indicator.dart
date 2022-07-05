@@ -38,43 +38,41 @@ class _ArcProgressIndicatorState extends State<ArcProgressIndicator>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          CustomPaint(
-            size: Size(260.w, 180.h),
-            painter: ProgressArc(animation.value, Colors.black45, false),
-          ),
-          CustomPaint(
-            size: Size(260.w, 180.h),
-            painter: ProgressArc(animation.value, Colors.amber.shade800, false),
-          ),
-          Positioned(
-            top: 70.h,
-            child: Column(
-              children: [
-                const Text('EasyTrack'),
-                const Text('\$1235'),
-                const Text('This month bills'),
-                ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        Theme.of(context).cardColor),
-                    shape: MaterialStateProperty.all<OutlinedBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15))),
-                    // backgroundColor:
-                    //     MaterialStateProperty.all<Color>(Colors.white),
-                  ),
-                  onPressed: () {},
-                  child: const Text('See your budget'),
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        CustomPaint(
+          size: Size(260.w, 180.h),
+          painter: ProgressArc(animation.value, Colors.black45, false),
+        ),
+        CustomPaint(
+          size: Size(260.w, 180.h),
+          painter: ProgressArc(animation.value, Colors.amber.shade800, false),
+        ),
+        Positioned(
+          top: 70.h,
+          child: Column(
+            children: [
+              const Text('EasyTrack'),
+              const Text('\$1235'),
+              const Text('This month bills'),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                      Theme.of(context).cardColor),
+                  shape: MaterialStateProperty.all<OutlinedBorder>(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15))),
+                  // backgroundColor:
+                  //     MaterialStateProperty.all<Color>(Colors.white),
                 ),
-              ],
-            ),
+                onPressed: () {},
+                child: const Text('See your budget'),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -90,7 +88,8 @@ class ProgressArc extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     const rect = Rect.fromLTRB(0, 0, 300, 300);
     const startAngle = -math.pi;
-    final sweepAngle = arc != null ? arc : math.pi;
+    //final sweepAngle = arc != null ? arc : math.pi;
+    final sweepAngle = arc;
     const useCenter = false;
     final paint = Paint()
       ..strokeCap = StrokeCap.round
