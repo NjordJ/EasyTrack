@@ -17,7 +17,7 @@ class MainPage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () {
-              context.router.navigate(const SettingsRouter());
+              context.router.push(const SettingsRouter());
             },
           ),
         ],
@@ -27,7 +27,6 @@ class MainPage extends StatelessWidget {
         BudgetAndSpendingsRouter(),
         CalendarRouter(),
         HistoryRouter(),
-        SettingsRouter(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) =>
           CustomBottomNavigatiorBar(router: tabsRouter),
