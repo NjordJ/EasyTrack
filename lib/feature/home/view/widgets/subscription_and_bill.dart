@@ -23,36 +23,50 @@ class _SubsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height / 3.05,
+      width: 0.9.sw,
+      height: 0.27.sh,
       child: const Placeholder(),
     );
   }
 }
 
-class _NavigationRow extends StatelessWidget {
+int navIndex = 0;
+
+class _NavigationRow extends StatefulWidget {
   const _NavigationRow({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<_NavigationRow> createState() => _NavigationRowState();
+}
+
+class _NavigationRowState extends State<_NavigationRow> {
+  @override
   Widget build(BuildContext context) {
     return Container(
       width: 0.9.sw,
       decoration: BoxDecoration(
-          color: Colors.black, borderRadius: BorderRadius.circular(10)),
+        color: Colors.black,
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: NavigationBar(
-          elevation: 0,
-          selectedIndex: 0,
+          elevation: 1,
+          selectedIndex: navIndex,
+          onDestinationSelected: (index) => setState(() {
+                navIndex = index;
+              }),
           backgroundColor: Colors.transparent,
           labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
           destinations: const [
             NavigationDestination(
-                icon: Text('Your subscriptions'),
-                selectedIcon: null,
-                label: ''),
+              icon: Text('Your subscriptions'),
+              label: '',
+            ),
             NavigationDestination(
-                icon: Text('Upcoming bills'), selectedIcon: null, label: ''),
+              icon: Text('Upcoming bills'),
+              label: '',
+            ),
           ]),
     );
   }

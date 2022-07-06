@@ -46,7 +46,7 @@ class _CategoriesList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 0.9.sw,
-      height: 0.3.sh,
+      height: 0.28.sh,
       padding: EdgeInsets.only(top: 10.h, bottom: 10.h),
       child: const Placeholder(
         child: Center(child: Text('Categories list')),
@@ -62,7 +62,7 @@ class _AddNewCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 0.9.sw,
-      height: 80.h,
+      height: 60.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         border: Border.all(

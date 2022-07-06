@@ -13,30 +13,24 @@ class MainPage extends StatelessWidget {
       appBarBuilder: (_, tabsRouter) => CustomAppBar(
         title: 'EasyTrack',
         leading: const AutoLeadingButton(),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              context.router.navigate(const SettingsRouter());
+            },
+          ),
+        ],
       ),
       routes: const [
         HomeRouter(),
         BudgetAndSpendingsRouter(),
         CalendarRouter(),
         HistoryRouter(),
-        //SettingsRouter(),
+        SettingsRouter(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) =>
           CustomBottomNavigatiorBar(router: tabsRouter),
     );
   }
 }
-
-// BottomNavigationBar(
-//         currentIndex: tabsRouter.activeIndex,
-//         onTap: tabsRouter.setActiveIndex,
-//         items: const <BottomNavigationBarItem>[
-//           BottomNavigationBarItem(
-//               icon: Icon(Icons.home),
-//               label: '',
-//               backgroundColor: Colors.black26),
-//           BottomNavigationBarItem(icon: Icon(Icons.grid_4x4), label: ''),
-//           BottomNavigationBarItem(icon: Icon(Icons.calendar_month), label: ''),
-//           BottomNavigationBarItem(icon: Icon(Icons.credit_card), label: ''),
-//         ],
-//       ),
