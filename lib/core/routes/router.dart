@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_track/core/main_page.dart';
-import 'package:easy_track/feature/calendar/view/pages/calendar_page.dart';
+import 'package:easy_track/feature/subscriptions_and_bills/calendar/view/pages/calendar_page.dart';
 import 'package:easy_track/feature/history/view/pages/history_page.dart';
-import 'package:easy_track/feature/home/view/pages/home_page.dart';
+import 'package:easy_track/feature/subscriptions_and_bills/home/view/pages/home_page.dart';
 import 'package:easy_track/feature/settings/view/pages/settings_page.dart';
 import 'package:easy_track/feature/spendings_and_budget/view/pages/spendings_and_budget_page.dart';
 

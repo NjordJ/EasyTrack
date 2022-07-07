@@ -1,6 +1,6 @@
-import 'package:easy_track/feature/home/view/widgets/arc_progress_indicator.dart';
-import 'package:easy_track/feature/home/view/widgets/subscription_and_bill.dart';
-import 'package:easy_track/feature/home/view/widgets/subscription_row.dart';
+import 'package:easy_track/feature/subscriptions_and_bills/home/view/widgets/arc_progress_indicator.dart';
+import 'package:easy_track/feature/subscriptions_and_bills/home/view/widgets/subscription_and_bill.dart';
+import 'package:easy_track/feature/subscriptions_and_bills/home/view/widgets/subscription_row.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

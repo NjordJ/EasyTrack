@@ -13,12 +13,14 @@
 import 'package:auto_route/auto_route.dart' as _i3;
 import 'package:flutter/material.dart' as _i8;
 
-import '../../feature/calendar/view/pages/calendar_page.dart' as _i6;
 import '../../feature/history/view/pages/history_page.dart' as _i7;
-import '../../feature/home/view/pages/home_page.dart' as _i4;
 import '../../feature/settings/view/pages/settings_page.dart' as _i2;
 import '../../feature/spendings_and_budget/view/pages/spendings_and_budget_page.dart'
     as _i5;
+import '../../feature/subscriptions_and_bills/calendar/view/pages/calendar_page.dart'
+    as _i6;
+import '../../feature/subscriptions_and_bills/home/view/pages/home_page.dart'
+    as _i4;
 import '../main_page.dart' as _i1;
 
 class AppRouter extends _i3.RootStackRouter {
