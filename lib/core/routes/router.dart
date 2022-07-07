@@ -63,7 +63,6 @@ import 'package:easy_track/feature/spendings_and_budget/view/pages/spendings_and
         ),
       ],
     ),
-    //Settings
     AutoRoute(
       path: 'settings',
       name: 'SettingsRouter',

@@ -11,13 +11,17 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
       appBarBuilder: (_, tabsRouter) => CustomAppBar(
-        title: 'EasyTrack',
+        title: tabsRouter.activeIndex == 0
+            ? ''
+            : (tabsRouter.activeIndex == 1
+                ? 'Spending & Budgets'
+                : (tabsRouter.activeIndex == 2 ? 'Calendar' : 'History')),
         leading: const AutoLeadingButton(),
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () {
-              context.router.push(const SettingsRouter());
+              context.router.navigate(const SettingsRouter());
             },
           ),
         ],
