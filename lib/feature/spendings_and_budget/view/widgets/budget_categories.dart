@@ -8,7 +8,7 @@ class BudgetCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: const <Widget>[
-        _TextContainer(),
+        _TabNavigation(),
         _CategoriesList(),
         _AddNewCategory(),
       ],
@@ -16,24 +16,60 @@ class BudgetCategories extends StatelessWidget {
   }
 }
 
-class _TextContainer extends StatelessWidget {
-  const _TextContainer({
-    Key? key,
-  }) : super(key: key);
+late TabController _tabController;
+int selectedIndex = 0;
+
+class _TabNavigation extends StatefulWidget {
+  const _TabNavigation({Key? key}) : super(key: key);
+
+  @override
+  State<_TabNavigation> createState() => _TabNavigationState();
+}
+
+class _TabNavigationState extends State<_TabNavigation>
+    with TickerProviderStateMixin {
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this)
+      ..addListener(() {
+        setState(() {
+          selectedIndex = _tabController.index;
+        });
+      });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _tabController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 0.9.sw,
-      height: 70.h,
+      height: 50.h,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(
-          color: Colors.white,
-        ),
+        color: Colors.black,
+        borderRadius: BorderRadius.circular(17),
       ),
-      child: const Center(
-        child: Text('Your budgets are on track'),
+      child: TabBar(
+        controller: _tabController,
+        indicator: BoxDecoration(
+          borderRadius: BorderRadius.circular(
+            17.0,
+          ),
+          color: Colors.grey.shade600,
+        ),
+        tabs: const [
+          Tab(
+            child: Text('Categories'),
+          ),
+          Tab(
+            child: Text('Costs'),
+          ),
+        ],
       ),
     );
   }
@@ -48,8 +84,26 @@ class _CategoriesList extends StatelessWidget {
       width: 0.9.sw,
       height: 0.28.sh,
       padding: EdgeInsets.only(top: 10.h, bottom: 10.h),
-      child: const Placeholder(
-        child: Center(child: Text('Categories list')),
+      child: Expanded(
+        child: TabBarView(
+          controller: _tabController,
+          children: [
+            Container(
+              child: const Placeholder(
+                child: Center(
+                  child: Text('Categories list'),
+                ),
+              ),
+            ),
+            Container(
+              child: const Placeholder(
+                child: Center(
+                  child: Text('Costs list'),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

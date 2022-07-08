@@ -85,12 +85,12 @@ class _ApperanceSection extends StatelessWidget {
           children: const [
             _SettingsItemListTile(
               leadingIcon: Icon(Icons.square_outlined),
-              title: Text('Sorting'),
+              title: Text('App icon'),
               trailing: null,
             ),
             _SettingsItemListTile(
               leadingIcon: Icon(Icons.sunny),
-              title: Text('Summary'),
+              title: Text('Theme'),
               trailing: null,
             ),
           ],

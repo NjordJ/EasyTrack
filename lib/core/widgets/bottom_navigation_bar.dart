@@ -21,7 +21,9 @@ class CustomBottomNavigatiorBar extends StatelessWidget {
           Center(
             heightFactor: 0.6,
             child: FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                print('FAB pressed');
+              },
               backgroundColor: Colors.amber.shade700,
               elevation: 0.1,
               child: const Icon(Icons.add),
@@ -44,19 +46,25 @@ class CustomBottomNavigatiorBar extends StatelessWidget {
                   ),
                   label: '',
                 ),
-                NavigationDestination(
-                  icon: Icon(
-                    Icons.category,
-                    color: Colors.white,
+                Padding(
+                  padding: EdgeInsets.only(right: 45.0),
+                  child: NavigationDestination(
+                    icon: Icon(
+                      Icons.category,
+                      color: Colors.white,
+                    ),
+                    label: '',
                   ),
-                  label: '',
                 ),
-                NavigationDestination(
-                  icon: Icon(
-                    Icons.calendar_month,
-                    color: Colors.white,
+                Padding(
+                  padding: EdgeInsets.only(left: 45.0),
+                  child: NavigationDestination(
+                    icon: Icon(
+                      Icons.calendar_month,
+                      color: Colors.white,
+                    ),
+                    label: '',
                   ),
-                  label: '',
                 ),
                 NavigationDestination(
                   icon: Icon(

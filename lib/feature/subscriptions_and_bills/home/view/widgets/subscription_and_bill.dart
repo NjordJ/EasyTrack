@@ -9,8 +9,67 @@ class SubscriptionAndBills extends StatelessWidget {
     return Center(
       child: Column(
         children: const <Widget>[
-          _NavigationRow(),
+          _TabNavigation(),
           _SubsItem(),
+        ],
+      ),
+    );
+  }
+}
+
+late TabController _tabController;
+int selectedIndex = 0;
+
+class _TabNavigation extends StatefulWidget {
+  const _TabNavigation({Key? key}) : super(key: key);
+
+  @override
+  State<_TabNavigation> createState() => _TabNavigationState();
+}
+
+class _TabNavigationState extends State<_TabNavigation>
+    with TickerProviderStateMixin {
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this)
+      ..addListener(() {
+        setState(() {
+          selectedIndex = _tabController.index;
+        });
+      });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _tabController.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 0.9.sw,
+      height: 50.h,
+      decoration: BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.circular(17),
+      ),
+      child: TabBar(
+        controller: _tabController,
+        indicator: BoxDecoration(
+          borderRadius: BorderRadius.circular(
+            17.0,
+          ),
+          color: Colors.grey.shade600,
+        ),
+        tabs: const [
+          Tab(
+            child: Text('Your subscriptions'),
+          ),
+          Tab(
+            child: Text('Upcoming bills'),
+          ),
         ],
       ),
     );
@@ -25,49 +84,27 @@ class _SubsItem extends StatelessWidget {
     return SizedBox(
       width: 0.9.sw,
       height: 0.27.sh,
-      child: const Placeholder(),
-    );
-  }
-}
-
-int navIndex = 0;
-
-class _NavigationRow extends StatefulWidget {
-  const _NavigationRow({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<_NavigationRow> createState() => _NavigationRowState();
-}
-
-class _NavigationRowState extends State<_NavigationRow> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 0.9.sw,
-      decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(10),
+      child: Expanded(
+        child: TabBarView(
+          controller: _tabController,
+          children: [
+            Container(
+              child: const Placeholder(
+                child: Center(
+                  child: Text('Subscriptions'),
+                ),
+              ),
+            ),
+            Container(
+              child: const Placeholder(
+                child: Center(
+                  child: Text('Bills'),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
-      child: NavigationBar(
-          elevation: 1,
-          selectedIndex: navIndex,
-          onDestinationSelected: (index) => setState(() {
-                navIndex = index;
-              }),
-          backgroundColor: Colors.transparent,
-          labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-          destinations: const [
-            NavigationDestination(
-              icon: Text('Your subscriptions'),
-              label: '',
-            ),
-            NavigationDestination(
-              icon: Text('Upcoming bills'),
-              label: '',
-            ),
-          ]),
     );
   }
 }
