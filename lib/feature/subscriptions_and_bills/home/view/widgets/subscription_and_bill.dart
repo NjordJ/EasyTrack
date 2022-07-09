@@ -84,26 +84,24 @@ class _SubsItem extends StatelessWidget {
     return SizedBox(
       width: 0.9.sw,
       height: 0.27.sh,
-      child: Expanded(
-        child: TabBarView(
-          controller: _tabController,
-          children: [
-            Container(
-              child: const Placeholder(
-                child: Center(
-                  child: Text('Subscriptions'),
-                ),
+      child: TabBarView(
+        controller: _tabController,
+        children: [
+          Container(
+            child: const Placeholder(
+              child: Center(
+                child: Text('Subscriptions'),
               ),
             ),
-            Container(
-              child: const Placeholder(
-                child: Center(
-                  child: Text('Bills'),
-                ),
+          ),
+          Container(
+            child: const Placeholder(
+              child: Center(
+                child: Text('Bills'),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

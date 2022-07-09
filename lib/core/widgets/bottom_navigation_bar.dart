@@ -18,17 +18,6 @@ class CustomBottomNavigatiorBar extends StatelessWidget {
             size: Size(1.sw, 80.h),
             painter: BottomNavBarPainter(),
           ),
-          Center(
-            heightFactor: 0.6,
-            child: FloatingActionButton(
-              onPressed: () {
-                print('FAB pressed');
-              },
-              backgroundColor: Colors.amber.shade700,
-              elevation: 0.1,
-              child: const Icon(Icons.add),
-            ),
-          ),
           SizedBox(
             width: 1.sw,
             height: 90.h,

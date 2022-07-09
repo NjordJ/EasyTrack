@@ -84,26 +84,24 @@ class _CategoriesList extends StatelessWidget {
       width: 0.9.sw,
       height: 0.28.sh,
       padding: EdgeInsets.only(top: 10.h, bottom: 10.h),
-      child: Expanded(
-        child: TabBarView(
-          controller: _tabController,
-          children: [
-            Container(
-              child: const Placeholder(
-                child: Center(
-                  child: Text('Categories list'),
-                ),
+      child: TabBarView(
+        controller: _tabController,
+        children: [
+          Container(
+            child: const Placeholder(
+              child: Center(
+                child: Text('Categories list'),
               ),
             ),
-            Container(
-              child: const Placeholder(
-                child: Center(
-                  child: Text('Costs list'),
-                ),
+          ),
+          Container(
+            child: const Placeholder(
+              child: Center(
+                child: Text('Costs list'),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
