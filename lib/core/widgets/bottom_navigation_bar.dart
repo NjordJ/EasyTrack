@@ -4,8 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomBottomNavigatiorBar extends StatelessWidget {
   final TabsRouter router;
-  const CustomBottomNavigatiorBar({Key? key, required this.router})
-      : super(key: key);
+  const CustomBottomNavigatiorBar({
+    Key? key,
+    required this.router,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,56 +16,83 @@ class CustomBottomNavigatiorBar extends StatelessWidget {
       height: 80.h,
       child: Stack(
         children: [
-          CustomPaint(
-            size: Size(1.sw, 80.h),
-            painter: BottomNavBarPainter(),
-          ),
-          SizedBox(
-            width: 1.sw,
-            height: 90.h,
-            child: NavigationBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-              selectedIndex: router.activeIndex,
-              onDestinationSelected: router.setActiveIndex,
-              destinations: const [
-                NavigationDestination(
-                  icon: Icon(
-                    Icons.home,
-                    color: Colors.white,
-                  ),
-                  label: '',
-                ),
-                Padding(
-                  padding: EdgeInsets.only(right: 45.0),
-                  child: NavigationDestination(
-                    icon: Icon(
-                      Icons.category,
-                      color: Colors.white,
-                    ),
-                    label: '',
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 45.0),
-                  child: NavigationDestination(
-                    icon: Icon(
-                      Icons.calendar_month,
-                      color: Colors.white,
-                    ),
-                    label: '',
-                  ),
-                ),
-                NavigationDestination(
-                  icon: Icon(
-                    Icons.history_rounded,
-                    color: Colors.white,
-                  ),
-                  label: '',
-                ),
-              ],
+          IgnorePointer(
+            child: CustomPaint(
+              size: Size(1.sw, 80.h),
+              painter: BottomNavBarPainter(),
             ),
+          ),
+          _NavBar(router: router),
+          Center(
+            heightFactor: 0.8,
+            child: FloatingActionButton(
+              elevation: 0.5,
+              backgroundColor: Colors.amber.shade700,
+              child: const Icon(Icons.add),
+              onPressed: () {
+                print('FAB click');
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _NavBar extends StatelessWidget {
+  const _NavBar({
+    Key? key,
+    required this.router,
+  }) : super(key: key);
+
+  final TabsRouter router;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 1.sw,
+      height: 90.h,
+      child: NavigationBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+        selectedIndex: router.activeIndex,
+        onDestinationSelected: router.setActiveIndex,
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(
+              Icons.home,
+              color: Colors.white,
+            ),
+            label: '',
+          ),
+          Padding(
+            padding: EdgeInsets.only(right: 45.0),
+            child: NavigationDestination(
+              icon: Icon(
+                Icons.category,
+                color: Colors.white,
+              ),
+              label: '',
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 45.0),
+            child: NavigationDestination(
+              icon: Icon(
+                Icons.calendar_month,
+                color: Colors.white,
+              ),
+              label: '',
+            ),
+          ),
+          NavigationDestination(
+            icon: Icon(
+              Icons.history_rounded,
+              color: Colors.white,
+            ),
+            label: '',
           ),
         ],
       ),

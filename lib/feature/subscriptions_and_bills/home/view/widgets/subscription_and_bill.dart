@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+late TabController _tabController;
+int selectedIndex = 0;
+
 class SubscriptionAndBills extends StatelessWidget {
   const SubscriptionAndBills({Key? key}) : super(key: key);
 
@@ -16,9 +19,6 @@ class SubscriptionAndBills extends StatelessWidget {
     );
   }
 }
-
-late TabController _tabController;
-int selectedIndex = 0;
 
 class _TabNavigation extends StatefulWidget {
   const _TabNavigation({Key? key}) : super(key: key);
